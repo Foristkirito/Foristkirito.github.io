@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>
+        
+            Hexo
+        
+    </title>
+    <link rel="icon" href="/img/favicon.png"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/css/hljs.min.css">
+    <script src="/js/hljs.min.js"></script>  
+    <script src="/js/gitment.browser.js"></script>  
+</head>
+<body>
+    <header class="header" id="header">
+    <h1>
+        <a class="title" href="/">
+            Hexo
+        </a>
+    </h1>
+    <h2>
+        <a class="motto">
+            Just For Reference
+        </a>
+    </h2>
+    <nav class="navbar">
+        <ul class="menu">
+            
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Home
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/archives/" class="menu-item-link">
+                        Archives
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/category-archive" class="menu-item-link">
+                        Category
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/tag-archive/" class="menu-item-link">
+                        Tag
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/about/" class="menu-item-link">
+                        About
+                    </a>
+                </li>
+            
+                
+            
+                
+                
+                <li class="menu-item">
+                    <a class="menu-item-link search">
+                        Search                   
+                        <i class="fa fa-long-arrow-right search-icon" aria-hidden="true"></i>
+                    </a>
+                        <input placeholder="Search..." class="search-input" style="display:none;border:none!important;" onkeydown="onEnter(event)" onkeypress="onEnter(event)"></input>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+    <main class="main">
+        <section class="posts">
+    
+        <article class="post">
+            <h1>
+                <a class="title" href="/2018/09/30/ubuntu-16-04-Ngnix-HTTPS-反向代理/"> 
+                    ubuntu 16.04 Nginx HTTPS 反向代理 
+                </a>
+            </h1>
+                        <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2018-09-30   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/日常运维/">日常运维</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li></ul>
+            </div>
+            <div class="content">
+                
+                <h2 id="安装-nginx"><a class="markdownIt-Anchor" href="#安装-nginx"></a> 安装 Nginx</h2>
+<p>参考 <a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04" target="_blank" rel="noopener">digitalocean</a> 给出的教程，清晰明了</p>
+<h2 id="使用-lets-encrypt-获取-ssl-证书"><a class="markdownIt-Anchor" href="#使用-lets-encrypt-获取-ssl-证书"></a> 使用 Let’s Encrypt 获取 SSL 证书</h2>
+<p>点击 <a href="https://certbot.eff.org/lets-encrypt/ubuntuxenial-nginx" target="_blank" rel="noopener">Let’s Encrypt</a> 选择对应的操作系统和应用，如下图</p>
+<p><img src="http://pfzwn0psv.bkt.clouddn.com/free_ssl.PNG" alt="f_10092256.png"></p>
+<p>选择完毕之后，按照提示的操作进行 SSL 证书的获取</p>
+                
+            </div>
+            <div class="continue">
+            <a href="/2018/09/30/ubuntu-16-04-Ngnix-HTTPS-反向代理/">
+            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+            </div>
+        </article>
+        
+        <article class="post">
+            <h1>
+                <a class="title" href="/2018/09/29/linux-搭建-git-server，转移仓库，并定时备份/"> 
+                    linux 搭建 git server 转移仓库 并定时备份 
+                </a>
+            </h1>
+                        <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2018-09-29   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/日常运维/">日常运维</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rsync/">rsync</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据迁移/">数据迁移</a></li></ul>
+            </div>
+            <div class="content">
+                
+                <h2 id="linux-搭建-git-server"><a class="markdownIt-Anchor" href="#linux-搭建-git-server"></a> linux 搭建 git server</h2>
+<ul>
+<li>
+<p>创建 git 用户来存放 git 仓库</p>
+<pre class="highlight"><code class="bash">sudo user del -r git
+sudo adduser git
+</code></pre>
+<p>如果需要禁止 git 用户通过 ssh 登录，可以编辑 /etc/passwd 文件，将类似于</p>
+<pre class="highlight"><code class="bash">git:x:1001:1001:,,,:/home/git:/bin/bash
+</code></pre>
+<p>改成</p>
+<pre class="highlight"><code class="bash">git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell
+</code></pre>
+</li>
+<li>
+<p>安装 <code>git-core</code></p>
+<pre class="highlight"><code class="bash">sudo apt-get install git-core
+</code></pre>
+</li>
+<li>
+<p>初始化 git 仓库</p>
+<pre class="highlight"><code class="bash">git —bare init /home/git/my_repo.git
+</code></pre>
+<p>此时创建的是一个空的仓库，客户端 clone 下来后可以操作，也可以上传已有的仓库</p>
+</li>
+<li>
+<p>clone 仓库</p>
+<pre class="highlight"><code class="bash">git clone git@server_ip:/home/git/my_repo.git
+</code></pre>
+</li>
+</ul>
+                
+            </div>
+            <div class="continue">
+            <a href="/2018/09/29/linux-搭建-git-server，转移仓库，并定时备份/">
+            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+            </div>
+        </article>
+        
+</section>
+
+    </main>
+    <a class="not-found">not found!</a>
+    <div class="search-items">
+    </div>
+    <a href="#header" id="top" style="display:none">
+        <i class="fa fa-sort-asc fa-2x"></i>
+    </a>
+    <footer class="footer">
+    <div class="footer-copyright">©️2018
+    <a href="//github.com/Foristkirito/hexo-theme-toki" class="link" target="_blank">Toki</a>  Edited by Forist, Designed by Vevlins
+    </div>
+</footer>
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/toki.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css" type="text/css">
+</body>
+</html>
