@@ -135,7 +135,7 @@ sudo adduser git
 </li>
 <li>
 <p>初始化 git 仓库</p>
-<pre class="highlight"><code class="bash">git —bare init /home/git/my_repo.git
+<pre class="highlight"><code class="bash">git --bare init /home/git/my_repo.git
 </code></pre>
 <p>此时创建的是一个空的仓库，客户端 clone 下来后可以操作，也可以上传已有的仓库</p>
 </li>
@@ -222,7 +222,7 @@ git remote rename new-origin origin
 # For more information see the manual pages of crontab(5)    and cron(8)
 # 
 # m h  dom mon dow   command
-0 3 * * * * rsync -av --delete -e &quot;ssh -i /path/to/id_rsa&quot; /homt/git/ remote_user@X.X.X.X:~/backup
+0 3 * * * * rsync -av -e &quot;ssh -i /path/to/id_rsa&quot; /homt/git/ remote_user@X.X.X.X:~/backup
 </code></pre>
 </li>
 </ul>

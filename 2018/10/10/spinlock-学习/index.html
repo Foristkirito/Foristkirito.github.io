@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <title>
         
-            Hexo
+            spinlock 学习
         
     </title>
     <link rel="icon" href="/img/favicon.png"/>
@@ -86,15 +86,13 @@
     </nav>
 </header>
     <main class="main">
-        <section class="posts">
-    
         <article class="post">
             <h1>
                 <a class="title" href="/2018/10/10/spinlock-学习/"> 
                     spinlock 学习 
                 </a>
             </h1>
-                        <div class="meta">
+            <div class="meta">
                 <a class="date"> 
                     <i class="fa fa-calendar" aria-hidden="true"></i>                    
                     2018-10-10   
@@ -112,8 +110,10 @@
                 
                     <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/mutex/">mutex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spinlock/">spinlock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/锁/">锁</a></li></ul>
             </div>
+<div class="toc">
+  
+</div>
             <div class="content">
-                
                 <p>其实了解 spinlock，最直接的就是找到与 mutex 的区别，以及两个分别在什么场景下使用：</p>
 <ul>
 <li>
@@ -139,124 +139,86 @@
 </ul>
 </li>
 </ul>
-                
-            </div>
-            <div class="continue">
-            <a href="/2018/10/10/spinlock-学习/">
-            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
-            </a>
-            </div>
-        </article>
-        
-        <article class="post">
-            <h1>
-                <a class="title" href="/2018/09/30/ubuntu-16-04-Ngnix-HTTPS-反向代理/"> 
-                    ubuntu 16.04 Nginx HTTPS 反向代理 
-                </a>
-            </h1>
-                        <div class="meta">
-                <a class="date"> 
-                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
-                    2018-09-30   
-                </a>
-                
-                <a class="category">
-                    <i class="fa fa-th" aria-hidden="true"></i>  
-                </a>
-               
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/日常运维/">日常运维</a></li></ul>
-                
-                <a class="tag">
-                    <i class="fa fa-tags" aria-hidden="true"></i>  
-                </a>
-                
-                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li></ul>
-            </div>
-            <div class="content">
-                
-                <h2 id="安装-nginx"><a class="markdownIt-Anchor" href="#安装-nginx"></a> 安装 Nginx</h2>
-<p>参考 <a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04" target="_blank" rel="noopener">digitalocean</a> 给出的教程，清晰明了</p>
-<h2 id="使用-lets-encrypt-获取-ssl-证书"><a class="markdownIt-Anchor" href="#使用-lets-encrypt-获取-ssl-证书"></a> 使用 Let’s Encrypt 获取 SSL 证书</h2>
-<p>点击 <a href="https://certbot.eff.org/lets-encrypt/ubuntuxenial-nginx" target="_blank" rel="noopener">Let’s Encrypt</a> 选择对应的操作系统和应用，如下图</p>
-<p><img src="http://pfzwn0psv.bkt.clouddn.com/free_ssl.PNG" alt="f_10092256.png"></p>
-<p>选择完毕之后，按照提示的操作进行 SSL 证书的获取</p>
-                
-            </div>
-            <div class="continue">
-            <a href="/2018/09/30/ubuntu-16-04-Ngnix-HTTPS-反向代理/">
-            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
-            </a>
-            </div>
-        </article>
-        
-        <article class="post">
-            <h1>
-                <a class="title" href="/2018/09/29/linux-搭建-git-server，转移仓库，并定时备份/"> 
-                    linux 搭建 git server 转移仓库 并定时备份 
-                </a>
-            </h1>
-                        <div class="meta">
-                <a class="date"> 
-                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
-                    2018-09-29   
-                </a>
-                
-                <a class="category">
-                    <i class="fa fa-th" aria-hidden="true"></i>  
-                </a>
-               
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/日常运维/">日常运维</a></li></ul>
-                
-                <a class="tag">
-                    <i class="fa fa-tags" aria-hidden="true"></i>  
-                </a>
-                
-                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rsync/">rsync</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据迁移/">数据迁移</a></li></ul>
-            </div>
-            <div class="content">
-                
-                <h2 id="linux-搭建-git-server"><a class="markdownIt-Anchor" href="#linux-搭建-git-server"></a> linux 搭建 git server</h2>
+<a id="more"></a>
 <ul>
 <li>
-<p>创建 git 用户来存放 git 仓库</p>
-<pre class="highlight"><code class="bash">sudo user del -r git
-sudo adduser git
-</code></pre>
-<p>如果需要禁止 git 用户通过 ssh 登录，可以编辑 /etc/passwd 文件，将类似于</p>
-<pre class="highlight"><code class="bash">git:x:1001:1001:,,,:/home/git:/bin/bash
-</code></pre>
-<p>改成</p>
-<pre class="highlight"><code class="bash">git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell
-</code></pre>
+<p>新的思路：</p>
+<ul>
+<li>
+<p>hybrid mutex：获取 mutex 不成功时，一开始像 spinlock 一样，不断尝试去获取，直到超过一定的时间阈值，如果 mutex 依旧没有释放则让线程 sleep</p>
 </li>
 <li>
-<p>安装 <code>git-core</code></p>
-<pre class="highlight"><code class="bash">sudo apt-get install git-core
-</code></pre>
-</li>
-<li>
-<p>初始化 git 仓库</p>
-<pre class="highlight"><code class="bash">git --bare init /home/git/my_repo.git
-</code></pre>
-<p>此时创建的是一个空的仓库，客户端 clone 下来后可以操作，也可以上传已有的仓库</p>
-</li>
-<li>
-<p>clone 仓库</p>
-<pre class="highlight"><code class="bash">git clone git@server_ip:/home/git/my_repo.git
-</code></pre>
+<p>hybrid spinlock：一开始和 hybrid mutex 一样，但是超过时间阈值时，进行线程切换，让其他线程运行，这样就没有浪费 CPU 的资源在获取 spinlock 上</p>
 </li>
 </ul>
-                
-            </div>
-            <div class="continue">
-            <a href="/2018/09/29/linux-搭建-git-server，转移仓库，并定时备份/">
-            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
-            </a>
-            </div>
-        </article>
-        
-</section>
+</li>
+</ul>
 
+            </div>
+          
+           
+            <div class="copyright">
+                <div class="name">
+                    <a>本文作者:</a>
+                    <a>Forist</a>
+                </div>
+                <div class="link">
+                    <a>本文链接:</a>
+                    <a class="permalink" href="https://foristkirito.github.io/2018/10/10/spinlock-学习/">https://foristkirito.github.io/2018/10/10/spinlock-学习/</a>
+                </div>
+                <div class="license">
+                    <a>版权声明:</a>
+                    <a>本博客所有文章除特别声明外，均采用许可协议 CC BY-NC-SA 3.0 CN。转载请注明出处！</a>
+                </div>
+            </div>
+            
+
+          
+
+
+</article>
+
+
+<div class="more">
+
+<div></div>
+
+    <div class="next">
+    <a href="/2018/09/30/ubuntu-16-04-Ngnix-HTTPS-反向代理/"> ubuntu 16.04 Nginx HTTPS 反向代理 </a>
+    </div>
+    
+</div>
+
+<div class="bdsharebuttonbox">
+<a href="#" class="bds_weixin fa fa-weixin" data-cmd="weixin" title="分享到微信" style="color:#1cbd8f">
+</a>
+<a href="#" class="bds_tsina fa fa-weibo" data-cmd="tsina" title="分享到新浪微博" style="color:#ff6363">
+</a>
+<a href="#" class="bds_twi fa fa-twitter" data-cmd="twi" title="分享到Twitter" style="color:#00A7EB">
+</a>
+<a href="#" class="bds_fbook fa fa-facebook" data-cmd="fbook" title="分享到Facebook" style="color:#00A7EB">
+</a>
+</div>
+<script>
+window._bd_share_config={
+    "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},
+    "share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='../../../../../static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+ 
+<div id="comments"></div>
+
+<script>
+    var gitment = new Gitment({
+    id: "Wed Oct 10 2018 23:40:33 GMT+0800",
+    owner: "Foristkirito",
+    repo: "foristkirito.github.io",
+    oauth: {
+      client_id:"60c4d6300e7afdb9e586",
+      client_secret: "e0d6db2cf31eabec042619746f5aff8ee1fab807",
+    }
+  })
+  gitment.render('comments')
+</script>
     </main>
     <a class="not-found">not found!</a>
     <div class="search-items">
