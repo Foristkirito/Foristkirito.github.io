@@ -115,30 +115,12 @@
             <div class="content">
                 
                 <p>其实了解 spinlock，最直接的就是找到与 mutex 的区别，以及两个分别在什么场景下使用：</p>
-<ul>
-<li>
-<p>工作机制：</p>
-<ul>
-<li>
-<p>spinlock：当线程 A 获取 spinlock 失败的时候，线程 A 会一直不断地去尝试获取 spinlock，知道成功</p>
-</li>
-<li>
-<p>mutex：当线程 A 获取 mutex 失败的时候，线程 A 会进入睡眠，知道被唤醒（mutex 被释放的时候会唤醒线程 A）</p>
-</li>
-</ul>
-</li>
-<li>
-<p>各自存在的问题：</p>
-<ul>
-<li>
-<p>spinlock：由于线程 A 获取 spinlock 不成功的时候会一直去尝试获取 spinlock，此时 A 一直在消耗 CPU 的资源。当其他线程持有锁的时间非常长的时候，或者 CPU 资源成为瓶颈的时候，spinlock 的会降低整体效率</p>
-</li>
-<li>
-<p>mutex：线程 A 获取 mutex 不成功的时候，会进入睡眠，mutex 被释放的时候，会被唤醒。睡眠和唤醒看似简单的操作，其中涉及到非常多的 CPU 指令，这种情况下，如果持有 mutex 的时间非常短，例如在 ms 级别，睡眠和唤醒的开销相对就非常大了</p>
-</li>
-</ul>
-</li>
-</ul>
+<h4 id="工作机制"><a class="markdownIt-Anchor" href="#工作机制"></a> <strong>工作机制</strong>：</h4>
+<p><strong>spinlock</strong>：当线程 A 获取 spinlock 失败的时候，线程 A 会一直不断地去尝试获取 spinlock，知道成功</p>
+<p><strong>mutex</strong>：当线程 A 获取 mutex 失败的时候，线程 A 会进入睡眠，知道被唤醒（mutex 被释放的时候会唤醒线程 A）</p>
+<h4 id="各自存在的问题"><a class="markdownIt-Anchor" href="#各自存在的问题"></a> <strong>各自存在的问题</strong>：</h4>
+<p><strong>spinlock</strong>：由于线程 A 获取 spinlock 不成功的时候会一直去尝试获取 spinlock，此时 A 一直在消耗 CPU 的资源。当其他线程持有锁的时间非常长的时候，或者 CPU 资源成为瓶颈的时候，spinlock 的会降低整体效率</p>
+<p><strong>mutex</strong>：线程 A 获取 mutex 不成功的时候，会进入睡眠，mutex 被释放的时候，会被唤醒。睡眠和唤醒看似简单的操作，其中涉及到非常多的 CPU 指令，这种情况下，如果持有 mutex 的时间非常短，例如在 ms 级别，睡眠和唤醒的开销相对就非常大了</p>
                 
             </div>
             <div class="continue">

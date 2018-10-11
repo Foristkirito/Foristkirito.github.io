@@ -111,48 +111,20 @@
                     <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/mutex/">mutex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spinlock/">spinlock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/锁/">锁</a></li></ul>
             </div>
 <div class="toc">
-  
+  <ol class="toc-list"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#工作机制"><span class="toc-list-text"> 工作机制：</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#各自存在的问题"><span class="toc-list-text"> 各自存在的问题：</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#新的思路"><span class="toc-list-text"> 新的思路：</span></a></li></ol>
 </div>
             <div class="content">
                 <p>其实了解 spinlock，最直接的就是找到与 mutex 的区别，以及两个分别在什么场景下使用：</p>
-<ul>
-<li>
-<p>工作机制：</p>
-<ul>
-<li>
-<p>spinlock：当线程 A 获取 spinlock 失败的时候，线程 A 会一直不断地去尝试获取 spinlock，知道成功</p>
-</li>
-<li>
-<p>mutex：当线程 A 获取 mutex 失败的时候，线程 A 会进入睡眠，知道被唤醒（mutex 被释放的时候会唤醒线程 A）</p>
-</li>
-</ul>
-</li>
-<li>
-<p>各自存在的问题：</p>
-<ul>
-<li>
-<p>spinlock：由于线程 A 获取 spinlock 不成功的时候会一直去尝试获取 spinlock，此时 A 一直在消耗 CPU 的资源。当其他线程持有锁的时间非常长的时候，或者 CPU 资源成为瓶颈的时候，spinlock 的会降低整体效率</p>
-</li>
-<li>
-<p>mutex：线程 A 获取 mutex 不成功的时候，会进入睡眠，mutex 被释放的时候，会被唤醒。睡眠和唤醒看似简单的操作，其中涉及到非常多的 CPU 指令，这种情况下，如果持有 mutex 的时间非常短，例如在 ms 级别，睡眠和唤醒的开销相对就非常大了</p>
-</li>
-</ul>
-</li>
-</ul>
+<h4 id="工作机制"><a class="markdownIt-Anchor" href="#工作机制"></a> <strong>工作机制</strong>：</h4>
+<p><strong>spinlock</strong>：当线程 A 获取 spinlock 失败的时候，线程 A 会一直不断地去尝试获取 spinlock，知道成功</p>
+<p><strong>mutex</strong>：当线程 A 获取 mutex 失败的时候，线程 A 会进入睡眠，知道被唤醒（mutex 被释放的时候会唤醒线程 A）</p>
+<h4 id="各自存在的问题"><a class="markdownIt-Anchor" href="#各自存在的问题"></a> <strong>各自存在的问题</strong>：</h4>
+<p><strong>spinlock</strong>：由于线程 A 获取 spinlock 不成功的时候会一直去尝试获取 spinlock，此时 A 一直在消耗 CPU 的资源。当其他线程持有锁的时间非常长的时候，或者 CPU 资源成为瓶颈的时候，spinlock 的会降低整体效率</p>
+<p><strong>mutex</strong>：线程 A 获取 mutex 不成功的时候，会进入睡眠，mutex 被释放的时候，会被唤醒。睡眠和唤醒看似简单的操作，其中涉及到非常多的 CPU 指令，这种情况下，如果持有 mutex 的时间非常短，例如在 ms 级别，睡眠和唤醒的开销相对就非常大了</p>
 <a id="more"></a>
-<ul>
-<li>
-<p>新的思路：</p>
-<ul>
-<li>
-<p>hybrid mutex：获取 mutex 不成功时，一开始像 spinlock 一样，不断尝试去获取，直到超过一定的时间阈值，如果 mutex 依旧没有释放则让线程 sleep</p>
-</li>
-<li>
-<p>hybrid spinlock：一开始和 hybrid mutex 一样，但是超过时间阈值时，进行线程切换，让其他线程运行，这样就没有浪费 CPU 的资源在获取 spinlock 上</p>
-</li>
-</ul>
-</li>
-</ul>
+<h4 id="新的思路"><a class="markdownIt-Anchor" href="#新的思路"></a> <strong>新的思路</strong>：</h4>
+<p><strong>hybrid mutex</strong>：获取 mutex 不成功时，一开始像 spinlock 一样，不断尝试去获取，直到超过一定的时间阈值，如果 mutex 依旧没有释放则让线程 sleep</p>
+<p><strong>hybrid spinlock</strong>：一开始和 hybrid mutex 一样，但是超过时间阈值时，进行线程切换，让其他线程运行，这样就没有浪费 CPU 的资源在获取 spinlock 上</p>
 
             </div>
           
